@@ -1,13 +1,14 @@
 # AgriPredict — Prédiction du rendement agricole au Cameroun
 ## Problématique
 
+
 Peut-on prédire le rendement (t/ha) du cacao, du maïs et du manioc au Cameroun à partir
 du climat (température, pluviométrie) et des intrants agricoles (engrais, pesticides) ?
 Au-delà de la prédiction elle-même, l'objectif pédagogique du projet est de démontrer
 la compréhension mathématique des modèles utilisés, pas seulement leur utilisation via
 une bibliothèque : la régression linéaire est donc **implémentée from scratch en
 NumPy** (fonction de coût, descente de gradient, régularisation L2), en parallèle des
-modèles scikit-learn utilisés pour la version déployée.
+modèles scikit-learn utilisés dans l'interface.
 
 ## Données
 
@@ -40,8 +41,8 @@ modèles scikit-learn utilisés pour la version déployée.
    - standardisation manuelle des variables numériques (moyenne / écart-type),
    - encodage one-hot manuel de la variable `crop`,
    - fonction de coût `J(θ) = MSE/2 + régularisation L2`,
-   - mise à jour des paramètres `θ := θ - α·∇J(θ)` répétée sur plusieurs milliers
-     d'itérations, avec suivi de la courbe de convergence.
+   - mise à jour des paramètres `θ := θ - α·∇J(θ)` répétée jusqu'à convergence
+     (quelques dizaines d'itérations suffisent ici), avec suivi de la courbe de convergence. 
 5. **Modèles scikit-learn** (`src/train.py`) : baseline (moyenne historique par culture),
    régression linéaire (sert de référence pour valider le modèle from scratch),
    Random Forest, Gradient Boosting — dans un `Pipeline` scikit-learn (standardisation +
@@ -93,7 +94,7 @@ Comparaison des modèles (test = 5 dernières années, toutes cultures confondue
 | Random Forest               | 0.5542 | 0.9911 |
 | Gradient Boosting           | 0.6346 | 0.9883 |
 
-**Modèle déployé (API/interface) : Random Forest** (RMSE global le plus bas). Le
+**Modèle retenu (API/interface) : Random Forest** (RMSE global le plus bas). Le
 modèle from scratch obtient exactement le même score que sa contrepartie
 scikit-learn (preuve de correction de l'implémentation) mais un score moins bon que
 les modèles non linéaires : c'est cohérent, la relation entre climat/intrants et
