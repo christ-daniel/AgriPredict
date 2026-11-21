@@ -1,8 +1,4 @@
 # AgriPredict — Prédiction du rendement agricole au Cameroun
-
-Projet réalisé dans le cadre de la préparation du dossier de candidature au double
-diplôme ENSTA Paris (filière IA), été 2026.
-
 ## Problématique
 
 Peut-on prédire le rendement (t/ha) du cacao, du maïs et du manioc au Cameroun à partir
