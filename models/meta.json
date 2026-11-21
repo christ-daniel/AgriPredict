@@ -1,0 +1,61 @@
+{
+  "best_model": "random_forest",
+  "metrics": {
+    "baseline_moyenne": {
+      "rmse": 0.8011,
+      "r2": 0.9813
+    },
+    "linear_scratch": {
+      "rmse": 1.0319,
+      "r2": 0.969
+    },
+    "linear": {
+      "rmse": 1.0319,
+      "r2": 0.969
+    },
+    "random_forest": {
+      "rmse": 0.5542,
+      "r2": 0.9911
+    },
+    "gradient_boosting": {
+      "rmse": 0.6346,
+      "r2": 0.9883
+    }
+  },
+  "metrics_per_crop": {
+    "Cacao, f\u00e8ves": {
+      "rmse": 0.0494,
+      "r2": -6.1664
+    },
+    "Manioc, frais": {
+      "rmse": 0.9496,
+      "r2": -0.0703
+    },
+    "Ma\u00efs": {
+      "rmse": 0.1308,
+      "r2": -5.368
+    }
+  },
+  "crops": [
+    "Cacao, f\u00e8ves",
+    "Manioc, frais",
+    "Ma\u00efs"
+  ],
+  "year_min": 1990,
+  "year_max": 2024,
+  "num_features": [
+    "year",
+    "temp_anomaly",
+    "rainfall",
+    "fertilizer",
+    "pesticides"
+  ],
+  "cat_features": [
+    "crop"
+  ],
+  "scratch_params": {
+    "learning_rate": 0.3,
+    "n_iterations": 5000,
+    "lambda_reg": 0.0
+  }
+}
